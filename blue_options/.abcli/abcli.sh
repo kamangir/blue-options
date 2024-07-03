@@ -3,6 +3,8 @@
 abcli_source_path - caller,suffix=/tests
 
 abcli_env dot load \
-    plugin=blue_plugin
+    plugin=blue_options
 abcli_env dot load \
-    filename=blue_plugin/config.env,plugin=blue_plugin
+    filename=blue_options/config.env,plugin=blue_options
+
+
