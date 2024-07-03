@@ -12,10 +12,7 @@ setup(
     include_package_data=True,
     package_data={
         NAME: [
-            "config.env",
-            ".abcli/**/*.sh",
+            ".bash/*.sh",
         ],
     },
 )
-
-

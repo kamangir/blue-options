@@ -5,5 +5,4 @@ pymysql==0.10.1
 pyyaml
 pylint
 pytest
-python-dotenv[cli]
 tqdm

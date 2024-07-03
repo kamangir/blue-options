@@ -19,25 +19,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -e .
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ca-central-1
       - name: Run tests
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          ABCLI_AWS_RDS_HOST: ${{ secrets.ABCLI_AWS_RDS_HOST }}
-          ABCLI_AWS_RDS_PASSWORD: ${{ secrets.ABCLI_AWS_RDS_PASSWORD }}
-          BLUE_PLUGIN_SECRET: ${{ secrets.BLUE_PLUGIN_SECRET }}
         run: |
-          echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
-          echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"
-          echo "ABCLI_AWS_RDS_HOST: $ABCLI_AWS_RDS_HOST"
-          echo "ABCLI_AWS_RDS_PASSWORD: $ABCLI_AWS_RDS_PASSWORD"
-          echo "BLUE_PLUGIN_SECRET: $BLUE_PLUGIN_SECRET"
           pytest
 
 
