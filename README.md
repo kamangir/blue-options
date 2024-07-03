@@ -1,6 +1,41 @@
-# 🌀 blue_options
+# 🌀 blue-options
 
-🌀 `blue_options` implements an `options` for Bash. 
+🌀 `blue_options` implements an `options` argument for Bash.
+
+here is an example use of an `options` in the [vancouver-watching 🌈](https://github.com/kamangir/vancouver-watching) ingest command:
+
+
+```bash
+ > vanwatch help
+vanwatch ingest \
+	area=<vancouver>,~batch,count=<-1>,dryrun,gif,model=<model-id>,~process,publish,~upload \
+	-|<object-name> \
+	[<args>]
+ . ingest <area> -> <object-name>.
+```
+
+this command takes in an `options`, an `object`, and `args`. an `options` is a string representation of a dictionary, such as,
+
+```bash
+area=<vancouver>,~batch,count=<-1>,dryrun,gif,model=<model-id>,~process,publish,~upload
+```
+
+or in json notation,
+```json
+{
+    "area": "vancouver",
+    "batch": false,
+    "count": -1,
+    "dryrun": true,
+    "gif": true,
+    "model": "<model-id>",
+    "process": false,
+    "publish": true,
+    "upload": false,
+}
+```
+
+for more refer to [🔻 giza](https://github.com/kamangir/giza).
 
 ## installation
 
