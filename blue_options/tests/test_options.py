@@ -1,5 +1,5 @@
 import pytest
-from abcli.options import Options
+from blue_options.options import Options
 
 test_option_1 = "a,~b,c=1,d=0,var_e,-f,g=2,h=that,i=12.34"
 
