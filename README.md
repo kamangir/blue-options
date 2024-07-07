@@ -20,7 +20,8 @@ this command takes in an `options`, an `object`, and `args`. an `options` is a s
 area=<vancouver>,~batch,count=<-1>,dryrun,gif,model=<model-id>,~process,publish,~upload
 ```
 
-or in json notation,
+which is equivalent, in json notation, to,
+
 ```json
 {
     "area": "vancouver",
@@ -49,7 +50,9 @@ add this line to your `~/.bash_profile` or `~/.bashrc`,
 source $(python -m blue_options locate)/.bash/blue_options.sh
 ```
 
-## use
+## usage
+
+let your function receive an `options` argument, then parse it with `abcli_options` and `abcli_options_int`.
 
 ```bash
 function func() {
