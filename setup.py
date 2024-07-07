@@ -8,7 +8,10 @@ setup(
     name=NAME,
     version=VERSION,
     description=DESCRIPTION,
-    packages=[NAME],
+    packages=[
+        NAME,
+        f"{NAME}.options",
+    ],
     include_package_data=True,
     package_data={
         NAME: [
