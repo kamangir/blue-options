@@ -4,6 +4,10 @@ ICON = "🌀"
 
 DESCRIPTION = f"{ICON} an options for Bash."
 
-VERSION = "4.21.1"
+VERSION = "4.22.1"
 
 REPO_NAME = "blue-options"
+
+MARQUEE = (
+    "https://github.com/kamangir/assets/blob/main/blue-plugin/marquee.png?raw=true"
+)
