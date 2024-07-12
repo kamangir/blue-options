@@ -99,10 +99,14 @@ now, you have access to the `@git` super command. here is how it works.
 
 ```
  > @git help
- ...
+ @git commit [<message>] \
+	~push
+ . git commit with <message> and push.
+@git <command>
+ . git <command>.
  ```
 
-🔥 validation image
+![image](https://raw.githubusercontent.com/kamangir/assets/main/blue-options/example1.png)
 
 ---
 
