@@ -94,7 +94,7 @@ source <path/to/example1.sh>
 now, you have access to the `@git` super command. here is how it works.
 
 1. `@git help` shows usage instructions (see below).
-1. `@git commit` runs the three commands. you can customize the message by running `@git commit <mesage>`. you can also avoid the push by running `@git commit <message> ~push`.
+1. `@git commit` runs the three commands. you can customize the message by running `@git commit <message>`. you can also avoid the push by running `@git commit <message> ~push`.
 1. for any `<task>` other than `commit`, `@git <task> <args>` runs `git <task> <args>`.
 
 ```
