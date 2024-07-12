@@ -66,6 +66,44 @@ function func() {
 }
 ```
 
+## example 1
+
+from [reddit](https://www.reddit.com/r/bash/comments/1duw6ac/how_can_i_automate_these_tree_commands_i/)
+
+> How can I automate these tree commands I frequently need to type out?
+I would like to run:
+```bash
+git add .
+git commit -m "Initial "commit"
+git push
+```
+> I got bored of typing them out each time. Can I make an alias or something like "gc" (for git commit). The commit message is always the same "Initial commit".
+
+first, install `blue-options`. this will also install [`blueness`](https://github.com/kamangir/blueness).
+
+```bash
+pip install blue_options
+```
+
+then, copy [`example1.sh`](./blue_options/assets/example1.sh) to your machine and add this line to the end of your `bash_profile`,
+
+```bash
+source <path/to/example1.sh>
+```
+
+now, you have access to the `@git` super command. here is how it works.
+
+1. `@git help` shows usage instructions (see below).
+1. `@git commit` runs the three commands. you can customize the message by running `@git commit <mesage>`. you can also avoid the push by running `@git commit <message> ~push`.
+1. for any `<task>` other than `commit`, `@git <task> <args>` runs `git <task> <args>`.
+
+```
+ > @git help
+ ...
+ ```
+
+🔥 validation image
+
 ---
 
 [![PyPI version](https://img.shields.io/pypi/v/blue_options.svg)](https://pypi.org/project/blue_options/)

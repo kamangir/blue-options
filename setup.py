@@ -16,6 +16,7 @@ setup(
     package_data={
         NAME: [
             ".bash/*.sh",
+            "assets/*",
         ],
     },
 )
