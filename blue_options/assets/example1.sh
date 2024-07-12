@@ -4,6 +4,8 @@ export abcli_is_colorful=true
 
 alias @git=my_git
 
+source $(python -m blue_options locate)/.bash/blue_options.sh
+
 function my_git() {
     local task=${1:help}
 
