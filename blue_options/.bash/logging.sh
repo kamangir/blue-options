@@ -54,4 +54,6 @@ function abcli_show_usage() {
         printf "${CYAN} . $description${NC}\n"
     [[ ! -z "$comments" ]] &&
         printf "${GREEN} * $comments${NC}\n"
+
+    return 0
 }
