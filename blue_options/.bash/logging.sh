@@ -2,6 +2,7 @@
 
 # new line
 export ABCUL=" \\\\\n\t"
+export ABCUL2=" \n   "
 
 # Extra Options
 export EOP=$YELLOW
