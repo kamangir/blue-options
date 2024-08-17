@@ -36,7 +36,7 @@ which is equivalent, in json notation, to,
 }
 ```
 
-for more refer to [🔻 giza](https://github.com/kamangir/giza).
+for more refer to 🔻 [giza](https://github.com/kamangir/giza).
 
 ## installation
 
