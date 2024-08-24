@@ -1,13 +1,26 @@
 #! /usr/bin/env bash
 
-# new line
+# wrap-around
 export ABCUL=" \\\\\n\t"
 export ABCUL2=" \n   "
 
-# Extra Options
+# https://chatgpt.com/share/d354d916-3003-4a6d-84f3-5c51a59ed4b1
+function xwrap {
+    local output=""
+    for arg in "$@"; do
+        output+="${ABCUL}[${arg}]"
+    done
+    echo "$output"
+}
+
+# extra options
 export EOP=$YELLOW
 export EOPE=$LIGHTBLUE
 export EARGS="$ABCUL$EOP[<args>]$EOPE"
+
+function xtra() {
+    echo "$EOP$*$EOPE"
+}
 
 if [[ "$abcli_is_colorful" == true ]]; then
     export BLUE='\033[1;34m'
