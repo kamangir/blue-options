@@ -1,7 +1,10 @@
 import argparse
-from blue_options import VERSION
-from blue_options.options import NAME, Options
+from blueness import module
+from blue_options import NAME, VERSION
+from blue_options.options.classes import Options
 from blueness.argparse.generic import sys_exit
+
+NAME = module.name(__file__, NAME)
 
 list_of_tasks = "choice|get|subset"
 
