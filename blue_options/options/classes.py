@@ -1,34 +1,15 @@
 import copy
-from . import NAME
+from typing import Any
+from blue_options import NAME
 
 
 class Options(dict):
-    def __add__(self, options):
-        """return Options(self += options).
-
-        Args:
-            options (Options): options.
-
-        Returns:
-            Options: options
-        """
+    def __add__(self, options: "Options") -> "Options":
         output = copy.deepcopy(self)
         output.update(Options(options))
         return output
 
     def __init__(self, *args):
-        """constructor.
-
-        Args:
-            - option_1, value_1, option_2, value_2,...
-            - {option_1:value_1, option_2:value_2, ...}
-
-        Raises:
-            NameError: bad input.
-
-        Returns:
-            Options: options.
-        """
         super().__init__()
 
         if not args:
@@ -61,16 +42,7 @@ class Options(dict):
             else:
                 self[item] = True
 
-    def get(self, keyword, default):
-        """return self.get(keyword, default).
-
-        Args:
-            keyword (str): keyword.
-            default (str): default.
-
-        Returns:
-            Any: value.
-        """
+    def get(self, keyword: str, default: Any) -> Any:
         output = super().get(keyword, default)
 
         if isinstance(default, bool):
@@ -93,12 +65,7 @@ class Options(dict):
 
         return output
 
-    def to_str(self):
-        """convert self to str.
-
-        Returns:
-            str: self as str.
-        """
+    def to_str(self) -> str:
         return ",".join(
             sorted(
                 [

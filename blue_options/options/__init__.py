@@ -1,5 +1,1 @@
-from blue_options import NAME
-
-NAME = f"{NAME}.options"
-
-from .classes import Options
+from blue_options.options.classes import Options
