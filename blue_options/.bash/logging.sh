@@ -34,6 +34,51 @@ else
     unset BLUE LIGHTBLUE CYAN GREEN NC RED YELLOW
 fi
 
+function abcli_cat() {
+    local filename=${1:-help}
+
+    if [ "$filename" == "help" ]; then
+        abcli_show_usage "@cat <filename>" \
+            "log <filename>."
+        return
+    fi
+
+    if [ ! -f "$filename" ]; then
+        abcli_log_error "@cat: $filename: file not found."
+        return 1
+    fi
+
+    printf "🗒️  $YELLOW$filename$NC\n$BLUE"
+    cat $filename
+    printf "$NC\n🗒️  $YELLOW/$filename$NC\n"
+}
+
+function abcli_hr() {
+    local width=80
+    [[ "$abcli_is_github_workflow" == false ]] &&
+        [[ "$abcli_is_aws_batch" == false ]] &&
+        width=$(tput cols)
+
+    printf "$(python3 -m blue_options.logger hr --width $width)\n"
+}
+
+function abcli_log_list() {
+    local items=$1
+
+    if [[ "$items" == "help" ]]; then
+        local args="[--before \"list of\"]$ABCUL[--after \"items(s)\"]$ABCUL[--delim space|<delim>]"
+        abcli_show_usage "abcli_log_list <this,that>$ABCUL$EOP$args$EOPE" \
+            "log list."
+        return
+    fi
+
+    local message=$(python3 -m blue_options.list \
+        log \
+        --items "$items" \
+        "${@:2}")
+    printf "$message\n"
+}
+
 function abcli_log_local() {
     local message="$@"
     printf "$CYAN$message$NC\n"

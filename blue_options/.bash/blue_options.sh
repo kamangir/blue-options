@@ -21,5 +21,8 @@ function blue_options_action_git_before_push() {
 python3 -m blue_options version \
     --show_icon 1
 
+source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/alias.sh
+source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/list.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/logging.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/options.sh
+source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/string.sh
