@@ -5,4 +5,5 @@ pymysql
 pyyaml
 pylint
 pytest
+python-dotenv[cli]
 tqdm
