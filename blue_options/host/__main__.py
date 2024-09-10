@@ -26,11 +26,15 @@ args = parser.parse_args()
 
 success = False
 if args.task == "get":
+    success = True
+    output = f"unknown-{args.keyword}"
+
     if args.keyword == "name":
-        print(get_name())
-        success = True
+        output = get_name()
+
+    print(output)
 else:
     success = None
 
 
-sys_exit(logger, NAME, args.task, success, log=args.log)
+sys_exit(logger, NAME, args.task, success, log=False)
