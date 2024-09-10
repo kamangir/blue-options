@@ -1,5 +1,7 @@
 import argparse
+
 from blueness import module
+
 from blue_options import NAME
 from blue_options.string import after, before, pretty_date, random
 
