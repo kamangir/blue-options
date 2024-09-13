@@ -25,6 +25,7 @@ args = parser.parse_args()
 
 
 success = False
+# bash-tested in test_abcli_host in blue-objects.
 if args.task == "get":
     success = True
     output = f"unknown-{args.keyword}"
