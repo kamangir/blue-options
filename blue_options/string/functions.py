@@ -154,8 +154,8 @@ def pretty_date(
 def pretty_frequency(
     frequency: Union[None, float],
 ) -> str:
-    if frequency is None:
-        return "Unknown"
+    if frequency is None or frequency == 0:
+        return "None"
 
     if frequency >= 0.5:
         if frequency < 10**3:
@@ -176,24 +176,6 @@ def pretty_frequency(
             short=True,
         )
     )
-
-
-def pretty_param(
-    param: Any,
-    value: Any = None,
-) -> str:
-    if isinstance(param, str):
-        return unit_of.get(param.split(".")[0], "{}").format(value)
-
-    if isinstance(param, dict):
-        return [
-            f"{param_}: {pretty_param(param_, value_)}"
-            for param_, value_ in param.items()
-        ]
-
-    logger.error(f"{NAME}.pretty_param({param.__class__.__name__}), class not found.")
-
-    return ""
 
 
 def pretty_shape(shape: List[int]) -> str:
@@ -296,19 +278,6 @@ def random(
     return "".join(random_module.choice(alphabet) for _ in range(length))
 
 
-def shorten(
-    thing: Any,
-    shorten_length: int = 16,
-) -> str:
-    if isinstance(thing, list):
-        return [shorten(item) for item in thing]
-    return (
-        thing
-        if len(thing) < shorten_length
-        else f"{thing[: shorten_length - 4]}..{thing[-2:]}"
-    )
-
-
 def timestamp() -> str:
     return pretty_date(
         as_filename=True,
@@ -337,5 +306,5 @@ def utc_timestamp(
         local_dt = local.localize(naive, is_dst=None)
         return local_dt.astimezone(pytz.utc).timestamp()
     except:
-        print(f"-{NAME}: utc_timestamp({date},{format}): failed.")
+        logger.error(f"{NAME}.utc_timestamp({date},{format}): failed.")
         return "unknown"

@@ -14,11 +14,9 @@ from blue_options.string.functions import (
     pretty_date,
     pretty_duration,
     pretty_frequency,
-    pretty_param,
     pretty_shape,
     pretty_shape_of_matrix,
     random,
-    shorten,
     timestamp,
     utc_timestamp,
 )
