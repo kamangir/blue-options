@@ -33,11 +33,11 @@ def test_host_is(
     func: Callable,
     expected_value: Union[bool, None],
 ):
-    if expected_value == True:
+    if expected_value is True:
         assert func()
-    elif expected_value == False:
+    elif expected_value is False:
         assert not func()
-    elif expected_value == None:
+    elif expected_value is None:
         assert isinstance(func(), bool)
     else:
         assert False, "Invalid expected_value"
