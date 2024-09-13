@@ -53,3 +53,5 @@ GREEN = os.getenv("GREEN", "")
 NC = os.getenv("NC", "")
 
 HOST_NAME: Union[None, str] = None
+
+abcli_hostname = os.getenv("abcli_hostname", "")
