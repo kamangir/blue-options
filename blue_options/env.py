@@ -55,3 +55,5 @@ NC = os.getenv("NC", "")
 HOST_NAME: Union[None, str] = None
 
 abcli_hostname = os.getenv("abcli_hostname", "")
+
+abcli_wifi_ssid = os.getenv("abcli_wifi_ssid", "")
