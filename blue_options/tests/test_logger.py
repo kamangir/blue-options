@@ -6,7 +6,7 @@ def test_crash_report():
 
 
 def test_get_logger():
-    logger = get_logger()
+    logger = get_logger("testing")
     assert logger is not None
 
     logger.info("testing")
