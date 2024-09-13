@@ -3,6 +3,7 @@ from blueness import module
 from blue_options import NAME, VERSION
 from blue_options.options.classes import Options
 from blueness.argparse.generic import sys_exit
+from blue_options.logger import logger
 
 NAME = module.name(__file__, NAME)
 
@@ -87,4 +88,4 @@ elif args.task == "subset":
         ).to_str()
     )
 
-sys_exit(None, NAME, args.task, success)
+sys_exit(logger, NAME, args.task, success)
