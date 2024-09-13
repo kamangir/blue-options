@@ -20,7 +20,12 @@ from blue_options.string.functions import (
 
 
 @pytest.mark.parametrize(
-    ["s", "sub_string", "n", "expected_output"],
+    [
+        "s",
+        "sub_string",
+        "n",
+        "expected_output",
+    ],
     [
         [
             "this is a test",
@@ -85,7 +90,12 @@ def test_string_after(
 
 
 @pytest.mark.parametrize(
-    ["s", "sub_string", "n", "expected_output"],
+    [
+        "s",
+        "sub_string",
+        "n",
+        "expected_output",
+    ],
     [
         [
             "this is a test",
@@ -216,11 +226,14 @@ def test_string_between():
         [562949953421312, "512.00 TB"],
     ],
 )
-def test_string_pretty_bytes(byte_count: int, expected_output: str):
+def test_string_pretty_bytes(
+    byte_count: int,
+    expected_output: str,
+):
     assert pretty_bytes(byte_count) == expected_output
 
 
-@pytest.mark.parametrize(["date"], [None])
+@pytest.mark.parametrize(["date"], [[None]])
 @pytest.mark.parametrize(["as_filename"], [[True], [False]])
 @pytest.mark.parametrize(["explicit_format"], [[""], ["%d %B %Y"]])
 @pytest.mark.parametrize(["in_gmt"], [[True], [False]])
@@ -408,12 +421,27 @@ def test_pretty_shape(
 
 
 @pytest.mark.parametrize(
-    ["matrix", "expected_output"],
     [
-        [np.array([]), "0:float64"],
-        [np.zeros((7), dtype=np.uint16), "7:uint16"],
-        [np.zeros((1, 2), dtype=np.float32), "1x2:float32"],
-        [np.zeros((1, 2, 3), dtype=np.uint8), "1x2x3:uint8"],
+        "matrix",
+        "expected_output",
+    ],
+    [
+        [
+            np.array([]),
+            "0:float64",
+        ],
+        [
+            np.zeros((7), dtype=np.uint16),
+            "7:uint16",
+        ],
+        [
+            np.zeros((1, 2), dtype=np.float32),
+            "1x2:float32",
+        ],
+        [
+            np.zeros((1, 2, 3), dtype=np.uint8),
+            "1x2x3:uint8",
+        ],
     ],
 )
 def test_pretty_shape_of_matrix(
@@ -426,8 +454,8 @@ def test_pretty_shape_of_matrix(
 @pytest.mark.parametrize(
     ["func"],
     [
-        timestamp,
-        utc_timestamp,
+        [timestamp],
+        [utc_timestamp],
     ],
 )
 def test_string_timestamp(func: Callable):
