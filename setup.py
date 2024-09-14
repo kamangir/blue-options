@@ -10,6 +10,7 @@ setup(
     description=DESCRIPTION,
     packages=[
         NAME,
+        f"{NAME}.assets",
         f"{NAME}.host",
         f"{NAME}.list",
         f"{NAME}.logger",
