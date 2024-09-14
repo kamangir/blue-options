@@ -10,7 +10,11 @@ setup(
     description=DESCRIPTION,
     packages=[
         NAME,
+        f"{NAME}.host",
+        f"{NAME}.list",
+        f"{NAME}.logger",
         f"{NAME}.options",
+        f"{NAME}.string",
     ],
     include_package_data=True,
     package_data={
