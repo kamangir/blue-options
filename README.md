@@ -110,4 +110,4 @@ now, you have access to the `@git` super command. here is how it works.
 
 ---
 
-[![PyPI version](https://img.shields.io/pypi/v/blue_options.svg)](https://pypi.org/project/blue_options/)
+[![pylint](https://github.com/kamangir/blue-options/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-options/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-options/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-options/actions/workflows/pytest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-options.svg)](https://pypi.org/project/blue-options/)
