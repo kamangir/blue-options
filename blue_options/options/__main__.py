@@ -1,15 +1,17 @@
 import argparse
+
 from blueness import module
-from blue_options import NAME, VERSION
-from blue_options.options.classes import Options
 from blueness.argparse.generic import sys_exit
+
+from blue_options import NAME
+from blue_options.options.classes import Options
 from blue_options.logger import logger
 
 NAME = module.name(__file__, NAME)
 
 list_of_tasks = "choice|get|subset"
 
-parser = argparse.ArgumentParser(NAME, description=f"{NAME}-{VERSION}")
+parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
     "task",
     type=str,
