@@ -119,11 +119,10 @@ function abcli_show_usage() {
     return 0
 }
 
-function abcli_show_usage2() {
+function abcli_show_usage_2() {
     local module=$1
-    local command=$2
+    local command="${@:2}"
 
     python3 -m $module.help \
-        --command "$command" \
-        "${@:3}"
+        --command "$command"
 }

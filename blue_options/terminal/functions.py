@@ -1,5 +1,5 @@
 from functools import reduce
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Union
 
 from blue_options import env
 
@@ -30,7 +30,7 @@ def hr(
 
 
 def show_usage(
-    command: str,
+    command: Union[List[str], str],
     description: str,
     details: Dict[str, List[str]] = {},
     mono: bool = False,
@@ -38,6 +38,9 @@ def show_usage(
     NC = "" if mono else env.NC
     LIGHTBLUE = "" if mono else env.LIGHTBLUE
     CYAN = "" if mono else env.CYAN
+
+    if isinstance(command, list):
+        command = env.ABCUL.join(command)
 
     return "\n".join(
         [

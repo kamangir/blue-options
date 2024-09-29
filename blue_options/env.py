@@ -54,6 +54,8 @@ LIGHTBLUE = "\033[96m"
 NC = "\033[0m"
 RED = "\033[31m"
 
+EOP = "\033[33m"
+
 HOST_NAME: Union[None, str] = None
 
 abcli_hostname = os.getenv("abcli_hostname", "")
