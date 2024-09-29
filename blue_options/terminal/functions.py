@@ -35,7 +35,6 @@ def show_usage(
     details: Dict[str, List[str]] = {},
     mono: bool = False,
 ) -> str:
-    RED = "" if mono else env.RED
     NC = "" if mono else env.NC
     LIGHTBLUE = "" if mono else env.LIGHTBLUE
     CYAN = "" if mono else env.CYAN
