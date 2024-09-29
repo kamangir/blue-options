@@ -3,6 +3,7 @@
 # wrap-around
 export ABCUL=" \\\\\n\t"
 export ABCUL2=" \n   "
+export ABCUL3=" \n      "
 
 # https://chatgpt.com/share/d354d916-3003-4a6d-84f3-5c51a59ed4b1
 function xwrap {
@@ -59,7 +60,8 @@ function abcli_hr() {
         [[ "$abcli_is_aws_batch" == false ]] &&
         width=$(tput cols)
 
-    printf "$(python3 -m blue_options.logger hr --width $width)\n"
+    python3 -m blue_options.terminal hr \
+        --width $width
 }
 
 function abcli_log_list() {
@@ -115,4 +117,12 @@ function abcli_show_usage() {
         printf "${GREEN} * $comments${NC}\n"
 
     return 0
+}
+
+function abcli_show_usage_2() {
+    local module=$1
+    local command="${@:2}"
+
+    python3 -m $module.help \
+        --command "$command"
 }

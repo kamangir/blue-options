@@ -16,6 +16,7 @@ setup(
         f"{NAME}.logger",
         f"{NAME}.options",
         f"{NAME}.string",
+        f"{NAME}.terminal",
     ],
     include_package_data=True,
     package_data={
