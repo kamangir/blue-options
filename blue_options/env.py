@@ -48,9 +48,11 @@ abcli_log_filename = os.getenv(
 )
 
 
-CYAN = os.getenv("CYAN", "")
-GREEN = os.getenv("GREEN", "")
-NC = os.getenv("NC", "")
+CYAN = "\033[36m"
+GREEN = "\033[32m"
+LIGHTBLUE = "\033[96m"
+NC = "\033[0m"
+RED = "\033[31m"
 
 HOST_NAME: Union[None, str] = None
 
