@@ -72,5 +72,11 @@ def show_usage(
     )
 
 
-def xtra(options: str) -> str:
-    return f"{env.EOP}{options}{env.LIGHTBLUE}"
+def xtra(
+    options: str,
+    mono: bool = False,
+) -> str:
+    EOP = "" if mono else env.EOP
+    LIGHTBLUE = "" if mono else env.LIGHTBLUE
+
+    return f"{EOP}{options}{LIGHTBLUE}"
