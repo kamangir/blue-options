@@ -70,3 +70,7 @@ def show_usage(
             [],
         )
     )
+
+
+def xtra(options: str) -> str:
+    return f"{env.EOP}{options}{env.LIGHTBLUE}"
