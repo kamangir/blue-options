@@ -1,4 +1,9 @@
+import argparse
 from typing import List, Dict, Callable, Union
+
+from blueness.argparse.generic import sys_exit
+
+from blue_options.logger import logger
 
 
 def get_help(
@@ -6,7 +11,7 @@ def get_help(
     help_functions: Union[Callable, Dict[str, Union[Callable, Dict]]],
     mono: bool,
 ) -> str:
-    if callable(help_functions) and not tokens:
+    if callable(help_functions):
         return help_functions(tokens, mono=mono)
 
     if not tokens:
@@ -34,3 +39,32 @@ def get_help(
 
     assert callable(thing)
     return thing(tokens[1:], mono=mono)
+
+
+def help_main(
+    NAME: str,
+    help_functions: Union[Callable, Dict[str, Union[Callable, Dict]]],
+):
+    parser = argparse.ArgumentParser(NAME)
+    parser.add_argument(
+        "--command",
+        type=str,
+    )
+    parser.add_argument(
+        "--mono",
+        type=int,
+        default=0,
+        help="0|1",
+    )
+    args = parser.parse_args()
+
+    content = get_help(
+        tokens=args.command.strip().split(" "),
+        help_functions=help_functions,
+        mono=args.mono == 1,
+    )
+
+    if content:
+        print(content)
+
+    sys_exit(None, NAME, "help", bool(content))
