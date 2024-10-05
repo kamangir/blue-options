@@ -66,5 +66,7 @@ def help_main(
 
     if content:
         print(content)
+    else:
+        logger.warning(f'"{args.command}": help not found.')
 
     sys_exit(None, NAME, "help", bool(content))
