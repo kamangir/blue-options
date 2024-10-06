@@ -12,8 +12,8 @@ from blue_options.host.functions import (
     is_mac,
     is_rpi,
     is_ubuntu,
+    signature,
 )
-from blue_plugin.host import signature
 
 
 def test_signature():
