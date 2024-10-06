@@ -66,27 +66,27 @@ def get_seed_filename() -> str:
     )
 
 
-def is_aws_batch():
+def is_aws_batch() -> bool:
     return os.getenv("abcli_is_aws_batch", "false") == "true"
 
 
-def is_docker():
+def is_docker() -> bool:
     return os.getenv("abcli_is_docker", "false") == "true"
 
 
-def is_ec2():
+def is_ec2() -> bool:
     return os.getenv("abcli_is_ec2", "false") == "true"
 
 
-def is_github_workflow():
+def is_github_workflow() -> bool:
     return os.getenv("abcli_is_github_workflow", "false") == "true"
 
 
-def is_headless():
+def is_headless() -> bool:
     return os.getenv("abcli_is_headless", "false") == "true"
 
 
-def is_jetson():
+def is_jetson() -> bool:
     return os.getenv("abcli_is_jetson", "false") == "true"
 
 
@@ -101,19 +101,19 @@ def is_jupyter() -> bool:
         return False
 
 
-def is_mac():
+def is_mac() -> bool:
     return os.getenv("abcli_is_mac", "false") == "true"
 
 
-def is_rpi():
+def is_rpi() -> bool:
     return os.getenv("abcli_is_rpi", "false") == "true"
 
 
-def is_ubuntu():
+def is_ubuntu() -> bool:
     return os.getenv("abcli_is_ubuntu", "false") == "true"
 
 
-def signature():
+def signature() -> List[str]:
     import platform
 
     return (
@@ -122,8 +122,6 @@ def signature():
         + [
             "Python {}".format(platform.python_version()),
             "{} {}".format(platform.system(), platform.release()),
-        ]
-        + [
             env.abcli_hostname,
             get_name(),
         ]

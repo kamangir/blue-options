@@ -1,5 +1,6 @@
 import pytest
 from typing import Callable, Union
+
 from blue_options.host.functions import (
     is_aws_batch,
     is_docker,
@@ -12,6 +13,11 @@ from blue_options.host.functions import (
     is_rpi,
     is_ubuntu,
 )
+from blue_plugin.host import signature
+
+
+def test_signature():
+    assert signature()
 
 
 @pytest.mark.parametrize(
