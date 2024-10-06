@@ -118,18 +118,14 @@ def signature():
 
     return (
         [fullname()]
-        + list(
-            set(
-                [
-                    env.abcli_hostname,
-                    get_name(),
-                ]
-            )
-        )
         + tensor_processing_signature()
         + [
             "Python {}".format(platform.python_version()),
             "{} {}".format(platform.system(), platform.release()),
+        ]
+        + [
+            env.abcli_hostname,
+            get_name(),
         ]
         + ([env.abcli_wifi_ssid] if env.abcli_wifi_ssid else [])
     )
