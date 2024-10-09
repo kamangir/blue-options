@@ -26,4 +26,5 @@ source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/generic_task.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/list.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/logging.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/options.sh
+source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/source.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/string.sh
