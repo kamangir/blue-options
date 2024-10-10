@@ -2,6 +2,10 @@
 
 alias @browse=abcli_browse
 
+alias @env=abcli_env
+
+alias @eval=abcli_eval
+
 alias @hr=abcli_hr
 
 alias @cat=abcli_cat
