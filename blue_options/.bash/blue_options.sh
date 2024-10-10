@@ -23,6 +23,7 @@ python3 -m blue_options version \
 
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/alias.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/browse.sh
+source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/env.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/generic_task.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/install.sh
 source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/list.sh
