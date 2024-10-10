@@ -21,6 +21,6 @@ function abcli_browse() {
     elif [ "$abcli_is_rpi" == true ]; then
         DISPLAY=:0 chromium-browser -kiosk --no-sandbox "$url"
     else
-        abcli_log_warning "-@browse: $url: skipped."
+        abcli_log_warning "@browse: $url: skipped."
     fi
 }
