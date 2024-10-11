@@ -21,16 +21,22 @@ function blue_options_action_git_before_push() {
 python3 -m blue_options version \
     --show_icon 1
 
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/options.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/source.sh
+function blue_options_source_dependencies() {
+    local path=$1
 
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/browse.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/env.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/eval.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/generic_task.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/install.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/list.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/logging.sh
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/string.sh
+    source $path/options.sh
+    source $path/source.sh
 
-source $(dirname "$(realpath "${BASH_SOURCE[0]}")")/alias.sh
+    source $path/browse.sh
+    source $path/env.sh
+    source $path/eval.sh
+    source $path/generic_task.sh
+    source $path/install.sh
+    source $path/list.sh
+    source $path/logging.sh
+    source $path/string.sh
+
+    source $path/alias.sh
+}
+
+blue_options_source_dependencies $(dirname "$(realpath "${BASH_SOURCE[0]}")")
