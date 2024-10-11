@@ -34,6 +34,8 @@ function blue_options_source_dependencies() {
     source $path/install.sh
     source $path/list.sh
     source $path/logging.sh
+    source $path/open.sh
+    source $path/pause.sh
     source $path/string.sh
 
     source $path/alias.sh
