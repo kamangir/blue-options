@@ -37,6 +37,7 @@ function blue_options_source_dependencies() {
     source $path/open.sh
     source $path/pause.sh
     source $path/string.sh
+    source $path/testing.sh
 
     source $path/alias.sh
 }
