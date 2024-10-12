@@ -74,7 +74,7 @@ def show_usage(
 
 def xtra(
     options: str,
-    mono: bool = False,
+    mono: bool,
 ) -> str:
     EOP = "" if mono else env.EOP
     LIGHTBLUE = "" if mono else env.LIGHTBLUE
