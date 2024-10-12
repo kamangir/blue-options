@@ -24,5 +24,4 @@ function abcli_env() {
     env | grep "$1" | sort
 }
 
-abcli_source_path - \
-    caller,suffix=/env
+abcli_source_caller_suffix_path /env

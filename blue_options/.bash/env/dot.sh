@@ -50,4 +50,4 @@ function abcli_env_dot() {
     return 1
 }
 
-abcli_source_path - caller,suffix=/dot
+abcli_source_caller_suffix_path /dot
