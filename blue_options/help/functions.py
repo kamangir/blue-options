@@ -14,7 +14,7 @@ def get_help(
     if callable(help_functions):
         return help_functions(tokens, mono=mono)
 
-    if not tokens:
+    if not [token for token in tokens if token]:
         thing = help_functions
     elif tokens[0] in help_functions:
         return get_help(
