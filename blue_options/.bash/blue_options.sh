@@ -29,6 +29,7 @@ function blue_options_source_dependencies() {
     source $path/options.sh
     source $path/source.sh
 
+    source $path/assert.sh
     source $path/browse.sh
     source $path/code.sh
     source $path/env.sh
@@ -39,8 +40,12 @@ function blue_options_source_dependencies() {
     source $path/logging.sh
     source $path/open.sh
     source $path/pause.sh
+    source $path/plugins.sh
+    source $path/pylint.sh
+    source $path/pytest.sh
     source $path/string.sh
-    source $path/testing.sh
+    source $path/terminal.sh
+    source $path/test.sh
 
     source $path/alias.sh
 }

@@ -24,3 +24,8 @@ alias @option::subset=abcli_option_subset
 alias @options=blue_options
 
 alias @pause=abcli_pause
+
+alias @pylint=abcli_pylint
+alias @pytest=abcli_pytest
+
+alias @test=abcli_test
