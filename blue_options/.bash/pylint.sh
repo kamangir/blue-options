@@ -15,8 +15,6 @@ function abcli_pylint() {
         return
     fi
 
-    abcli_pip install pylint
-
     local repo_name=$(abcli_unpack_repo_name $plugin_name)
 
     abcli_log "$plugin_name: pylint: repo=$repo_name"
