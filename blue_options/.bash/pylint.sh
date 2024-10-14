@@ -21,12 +21,19 @@ function abcli_pylint() {
     fi
 
     local repo_name=$(abcli_unpack_repo_name $plugin_name)
-
-    abcli_log "$plugin_name: pylint: repo=$repo_name"
+    local repo_path=$abcli_path_git/$repo_name
 
     local ignore=$(abcli_option "$options" ignore voidvoidvoid)
 
-    pushd $abcli_path_git/$repo_name >/dev/null
+    if [[ ! -d "$repo_path" ]]; then
+        abcli_log_error "@pylint: $repo_path: path not found."
+        return 1
+    fi
+
+    abcli_log "$plugin_name: pylint: repo=$repo_name : $repo_path"
+
+    pushd $repo_path >/dev/null
+
     pylint \
         -d $abcli_pylint_ignored \
         $(git ls-files '*.py' | grep -v $ignore) \
