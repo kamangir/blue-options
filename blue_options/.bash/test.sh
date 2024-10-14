@@ -42,6 +42,8 @@ function abcli_test() {
         return
     fi
 
+    abcli_log "testing $plugin_name ..."
+
     local do_dryrun=$(abcli_option_int "$options" dryrun 0)
 
     local list_of_tests=$(abcli_option "$options" what all)
