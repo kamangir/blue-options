@@ -29,3 +29,6 @@ alias @pylint=abcli_pylint
 alias @pytest=abcli_pytest
 
 alias @test=abcli_test
+
+alias @timestamp=abcli_string_timestamp
+alias @@timestamp=abcli_string_timestamp_short
