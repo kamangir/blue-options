@@ -6,17 +6,7 @@ function abcli_pytest() {
     local plugin_name=$(abcli_option "$options" plugin abcli)
 
     if [ $(abcli_option_int "$options" help 0) == 1 ]; then
-        options="list$(xtra ,dryrun,~log,show_warning,~verbose)"
-        local callable="$plugin_name pytest"
-
-        if [[ "$plugin_name" == "abcli" ]]; then
-            options="$options,plugin=<plugin-name>"
-            callable="@pytest"
-        fi
-
-        abcli_show_usage "$callable$ABCUL[$options]$ABCUL[filename.py|filename.py::test]" \
-            "pytest $plugin_name."
-        return
+        abcli_show_usage_2 abcli pytest
     fi
 
     local args="${@:2}"
