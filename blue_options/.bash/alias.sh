@@ -14,6 +14,8 @@ alias @cat=abcli_cat
 
 alias @log_list=abcli_log_list
 
+alias @not=abcli_not
+
 alias @open=abcli_open
 
 alias @option=abcli_option

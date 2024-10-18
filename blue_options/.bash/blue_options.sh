@@ -30,6 +30,7 @@ function blue_options_source_dependencies() {
     source $path/source.sh
 
     source $path/assert.sh
+    source $path/bool.sh
     source $path/browse.sh
     source $path/code.sh
     source $path/env.sh
