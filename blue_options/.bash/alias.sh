@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+alias @assert=abcli_assert
+
 alias @browse=abcli_browse
 
 alias @code="abcli_code"
