@@ -37,7 +37,7 @@ def get_help(
             ]
         )
 
-    assert callable(thing)
+    assert callable(thing), type(thing)
     return thing(tokens[1:], mono=mono)
 
 
