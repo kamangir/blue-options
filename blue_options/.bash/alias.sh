@@ -36,3 +36,5 @@ alias @test=abcli_test
 
 alias @timestamp=abcli_string_timestamp
 alias @@timestamp=abcli_string_timestamp_short
+
+alias @today=abcli_string_today
