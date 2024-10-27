@@ -28,9 +28,10 @@ function abcli_env_dot_load() {
 
     if [[ ! -f "$path/$filename" ]]; then
         if [[ "$use_ssm" == 1 ]]; then
-            abcli_ssm_get path=$path/$plugin_name
+            local module_name=$(abcli_get_module_name_from_plugin $plugin_name)
+            abcli_ssm_get path=$path/$module_name
         else
-            abcli_log_warning "-@env: dot: load: $path/$filename: file not found."
+            abcli_log_warning "@env: dot: load: $path/$filename: file not found."
         fi
         return
     fi
