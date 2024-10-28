@@ -14,7 +14,6 @@ function abcli_help() {
 
     local command="${@:2}"
 
-    abcli_eval ~log \
-        python3 -m $module.help \
+    python3 -m $module.help \
         --command "$prefix $command"
 }
