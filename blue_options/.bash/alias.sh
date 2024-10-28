@@ -10,6 +10,8 @@ alias @env=abcli_env
 
 alias @eval=abcli_eval
 
+alias @help=abcli_help
+
 alias @hr=abcli_hr
 
 alias @cat=abcli_cat

@@ -36,6 +36,7 @@ function blue_options_source_dependencies() {
     source $path/env.sh
     source $path/eval.sh
     source $path/generic_task.sh
+    source $path/help.sh
     source $path/install.sh
     source $path/list.sh
     source $path/logging.sh
