@@ -6,7 +6,7 @@ list_of_modules: Dict[str, Dict] = {
 
 
 def get_module_name(callable: str) -> str:
-    for module in list_of_modules.keys():
+    for module in list_of_modules:
         if callable.startswith(module):
             return module
 
