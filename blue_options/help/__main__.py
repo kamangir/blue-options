@@ -4,7 +4,7 @@ from blueness import module
 from blueness.argparse.generic import sys_exit
 
 from blue_options import NAME
-from blue_options.help.registry import get_callable_module, get_callable_suffix
+from blue_options.help.parsing import get_callable_module, get_callable_suffix
 from blue_options.logger import logger
 
 NAME = module.name(__file__, NAME)

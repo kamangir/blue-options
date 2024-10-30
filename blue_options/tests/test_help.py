@@ -1,6 +1,6 @@
 import pytest
 
-from blue_options.help.registry import get_callable_module, get_callable_suffix
+from blue_options.help.parsing import get_callable_module, get_callable_suffix
 
 
 @pytest.mark.parametrize(
