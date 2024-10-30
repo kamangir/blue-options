@@ -1,8 +1,14 @@
-from typing import Dict
+import os
+from typing import List
 
-list_of_modules: Dict[str, Dict] = {
-    "abcli": {},
-}
+list_of_modules: List[str] = ["abcli"] + [
+    item
+    for item in os.getenv(
+        "BLUE_OPTIONS_HELP_MODULE_LIST",
+        "",
+    ).split("+")
+    if item
+]
 
 
 def get_callable_module(callable: str) -> str:
