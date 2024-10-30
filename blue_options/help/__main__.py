@@ -4,12 +4,12 @@ from blueness import module
 from blueness.argparse.generic import sys_exit
 
 from blue_options import NAME
-from blue_options.help.registry import get_module_name
+from blue_options.help.registry import get_callable_module, get_callable_suffix
 from blue_options.logger import logger
 
 NAME = module.name(__file__, NAME)
 
-list_of_tasks = ["get_module"]
+list_of_tasks = "get_module|get_suffix"
 
 parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
@@ -25,7 +25,9 @@ args = parser.parse_args()
 
 success = args.task in list_of_tasks
 if args.task == "get_module":
-    print(get_module_name(args.callable))
+    print(get_callable_module(args.callable))
+elif args.task == "get_suffix":
+    print(get_callable_suffix(args.callable))
 else:
     success = None
 

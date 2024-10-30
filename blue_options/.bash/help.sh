@@ -15,10 +15,12 @@ function abcli_help() {
         get_module \
         --callable "$callable")
 
-    local prefix=${callable#${module}_}
+    local suffix=$(python3 -m blue_options.help \
+        get_suffix \
+        --callable "$callable")
 
     local command="${@:2}"
 
     python3 -m $module.help \
-        --command "$prefix $command"
+        --command "$suffix $command"
 }
