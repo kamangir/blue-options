@@ -1,7 +1,13 @@
 import os
 from typing import List
 
-list_of_modules: List[str] = ["abcli"] + [
+list_of_modules: List[str] = [
+    "abcli",
+    "blue_options",
+    "blue_objects",
+    "blue_geo",
+    "blueflow",
+] + [
     item
     for item in os.getenv(
         "BLUE_OPTIONS_HELP_MODULE_LIST",
