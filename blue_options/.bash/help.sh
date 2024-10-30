@@ -2,6 +2,11 @@
 
 function abcli_help() {
     local callable=$1
+    if [[ -z "$callable" ]]; then
+        abcli_version
+        return
+    fi
+
     if alias "$callable" &>/dev/null; then
         callable=$(alias "$callable" | sed -E "s/^alias $callable='(.*)'$/\1/")
     fi
@@ -10,11 +15,12 @@ function abcli_help() {
         get_module \
         --callable "$callable")
 
-    local prefix=${callable#${module}_}
+    local suffix=$(python3 -m blue_options.help \
+        get_suffix \
+        --callable "$callable")
 
     local command="${@:2}"
 
-    abcli_eval ~log \
-        python3 -m $module.help \
-        --command "$prefix $command"
+    python3 -m $module.help \
+        --command "$suffix $command"
 }
