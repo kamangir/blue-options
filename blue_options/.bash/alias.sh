@@ -2,6 +2,8 @@
 
 alias @assert=abcli_assert
 
+alias @badge=abcli_badge
+
 alias @browse=abcli_browse
 
 alias @code="abcli_code"
