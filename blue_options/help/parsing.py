@@ -7,6 +7,7 @@ list_of_modules: List[str] = [
     "blue_objects",
     "blue_geo",
     "blueflow",
+    "notebooks_and_scripts",
 ] + [
     item
     for item in os.getenv(
@@ -17,16 +18,26 @@ list_of_modules: List[str] = [
 ]
 
 
-def get_callable_module(callable: str) -> str:
+def get_callable_module(
+    callable: str,
+    module_name_check: bool = True,
+) -> str:
     for module in list_of_modules:
         if callable.startswith(module):
-            return module
+            return (
+                os.getenv(f"{module}_module_name", module)
+                if module_name_check
+                else module
+            )
 
     return callable
 
 
 def get_callable_suffix(callable: str) -> str:
-    module = get_callable_module(callable)
+    module = get_callable_module(
+        callable,
+        module_name_check=False,
+    )
 
     suffix = callable.split(module)[1]
 
