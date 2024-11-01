@@ -1,12 +1,7 @@
 #! /usr/bin/env bash
 
 function blue_options() {
-    local task=$(abcli_unpack_keyword $1 help)
-
-    if [ $task == "help" ]; then
-        blue_options version
-        return
-    fi
+    local task=$(abcli_unpack_keyword $1 version)
 
     abcli_generic_task \
         plugin=blue_options,task=$task \
