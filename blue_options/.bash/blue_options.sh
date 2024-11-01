@@ -38,6 +38,7 @@ function blue_options_source_dependencies() {
     source $path/generic_task.sh
     source $path/help.sh
     source $path/install.sh
+    source $path/legacy.sh
     source $path/list.sh
     source $path/logging.sh
     source $path/open.sh

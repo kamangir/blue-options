@@ -16,13 +16,22 @@ def get_help(
 
     if not [token for token in tokens if token]:
         thing = help_functions
-    elif tokens[0] in help_functions:
-        return get_help(
-            tokens[1:],
-            help_functions[tokens[0]],
-            mono=mono,
-        )
     else:
+        for token in help_functions:
+            if tokens[0] == token:
+                return get_help(
+                    tokens[1:],
+                    help_functions[token],
+                    mono=mono,
+                )
+
+            if tokens[0].startswith(f"{token}_"):
+                return get_help(
+                    [tokens[0].split(f"{token}_", 1)[1]] + tokens[1:],
+                    help_functions[token],
+                    mono=mono,
+                )
+
         return ""
 
     if isinstance(thing, dict):

@@ -5,10 +5,6 @@ function abcli_pytest() {
 
     local plugin_name=$(abcli_option "$options" plugin abcli)
 
-    if [ $(abcli_option_int "$options" help 0) == 1 ]; then
-        abcli_show_usage_2 abcli pytest
-    fi
-
     local args="${@:2}"
 
     [[ $(abcli_option_int "$options" list 0) == 1 ]] &&
