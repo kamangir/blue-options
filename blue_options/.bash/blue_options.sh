@@ -41,6 +41,7 @@ function blue_options_source_dependencies() {
     source $path/plugins.sh
     source $path/pylint.sh
     source $path/pytest.sh
+    source $path/repeat.sh
     source $path/sleep.sh
     source $path/string.sh
     source $path/terminal.sh

@@ -40,6 +40,8 @@ alias @pause=abcli_pause
 alias @pylint=abcli_pylint
 alias @pytest=abcli_pytest
 
+alias @repeat=abcli_repeat
+
 alias @sleep=abcli_sleep
 
 alias @test=abcli_test
