@@ -40,9 +40,13 @@ alias @pause=abcli_pause
 alias @pylint=abcli_pylint
 alias @pytest=abcli_pytest
 
+alias @sleep=abcli_sleep
+
 alias @test=abcli_test
 
 alias @timestamp=abcli_string_timestamp
 alias @@timestamp=abcli_string_timestamp_short
 
 alias @today=abcli_string_today
+
+alias @watch=abcli_watch
