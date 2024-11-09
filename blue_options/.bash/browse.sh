@@ -2,14 +2,8 @@
 
 function abcli_browse() {
     local url=$1
+
     local description=$2
-
-    if [[ "$url" == "help" ]]; then
-        abcli_show_usage "@browse <url>$ABCUL[<description>]" \
-            "browse <url>."
-        return
-    fi
-
     [[ ! -z "$description" ]] &&
         abcli_log "$description"
 
