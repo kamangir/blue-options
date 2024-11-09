@@ -3,14 +3,6 @@
 function abcli_env_backup() {
     local task=$1
 
-    if [ "$task" == "help" ]; then
-        abcli_show_usage "@env backup" \
-            "backup env -> $abcli_path_env_backup."
-        abcli_show_usage "@env backup list" \
-            "list $abcli_path_env_backup."
-        return
-    fi
-
     if [ "$task" == "list" ]; then
         abcli_list $abcli_path_env_backup
         return
@@ -34,13 +26,12 @@ function abcli_env_backup() {
         "$HOME/Library/Application Support/Code/User/settings.json" \
         $abcli_path_env_backup/vscode-settings.json
 
-    cp -rv \
-        ~/.ssh \
-        $abcli_path_env_backup/.ssh
-
-    cp -rv \
-        ~/.aws \
-        $abcli_path_env_backup/.aws
+    local thing
+    for thing in ssh aws kaggle; do
+        cp -rv \
+            ~/.$thing \
+            $abcli_path_env_backup/.$thing
+    done
 
     abcli_log "ℹ️ make sure $abcli_path_env_backup is synced with Google Drive."
 }

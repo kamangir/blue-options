@@ -6,15 +6,6 @@ mkdir -pv $abcli_path_env_backup
 function abcli_env() {
     local task=$(abcli_unpack_keyword $1)
 
-    if [ "$task" == "help" ]; then
-        abcli_show_usage "@env [keyword]" \
-            "show environment variables."
-
-        abcli_env_backup help
-        abcli_env_dot "$@"
-        return
-    fi
-
     local function_name="abcli_env_$1"
     if [[ $(type -t $function_name) == "function" ]]; then
         $function_name "${@:2}"

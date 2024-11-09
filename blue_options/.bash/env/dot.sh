@@ -4,24 +4,7 @@ function abcli_env_dot() {
     local task=${1:-cat}
     [[ "$task" == "copy" ]] && task="cp"
 
-    if [[ "$task" == "help" ]]; then
-        abcli_env_dot_cat "$@"
-        abcli_env_dot_cp "$@"
-        abcli_env_dot_edit "$@"
-
-        abcli_show_usage "@env dot get <variable>" \
-            "<variable>."
-        abcli_show_usage "@env dot list" \
-            "list env repo."
-
-        abcli_env_dot_load "$@"
-
-        abcli_show_usage "@env dot set <variable> <value>" \
-            "<variable> = <value>."
-        return
-    fi
-
-    local function_name="abcli_env_dot_$1"
+    local function_name="abcli_env_dot_$task"
     if [[ $(type -t $function_name) == "function" ]]; then
         $function_name "${@:2}"
         return
@@ -46,7 +29,7 @@ function abcli_env_dot() {
         return
     fi
 
-    abcli_log_error "-@env: $task: command not found."
+    abcli_log_error "@env: $task: command not found."
     return 1
 }
 

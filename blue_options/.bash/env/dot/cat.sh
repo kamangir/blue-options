@@ -3,15 +3,6 @@
 function abcli_env_dot_cat() {
     local env_name=$(abcli_clarify_input $1 .env)
 
-    if [[ "$env_name" == "help" ]]; then
-        abcli_show_usage "@env dot cat$ABCUL[|<env-name>|config|sample]" \
-            "cat .env|<env-name>|sample.env."
-
-        abcli_show_usage "@env dot cat${ABCUL}jetson_nano|rpi <machine-name>" \
-            "cat .env from machine."
-        return
-    fi
-
     if [[ "$env_name" == ".env" ]]; then
         pushd $abcli_path_abcli >/dev/null
         abcli_eval - \

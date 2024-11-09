@@ -2,14 +2,6 @@
 
 function abcli_env_dot_load() {
     local options=$1
-
-    if [ $(abcli_option_int "$options" help 0) == 1 ]; then
-        options="caller,filename=<.env>,plugin=<plugin-name>,ssm,suffix=/tests,verbose"
-        abcli_show_usage "@env dot load$ABCUL[$options]" \
-            "load .env."
-        return
-    fi
-
     local plugin_name=$(abcli_option "$options" plugin abcli)
     local use_caller=$(abcli_option_int "$options" caller 0)
     local use_ssm=$(abcli_option_int "$options" ssm 0)

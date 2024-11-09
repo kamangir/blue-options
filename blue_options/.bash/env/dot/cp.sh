@@ -3,13 +3,8 @@
 function abcli_env_dot_cp() {
     local env_name=$1
 
-    if [[ "$env_name" == "help" ]]; then
-        abcli_show_usage "@env dot cp|copy$ABCUL<env-name>${ABCUL}jetson_nano|rpi$ABCUL<machine-name>" \
-            "cp <env-name> to machine."
-        return
-    fi
-
     local machine_kind=$(abcli_clarify_input $2 local)
+
     local machine_name=$3
 
     if [ "$machine_kind" == "local" ]; then
