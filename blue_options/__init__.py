@@ -6,7 +6,7 @@ ICON = "🌀"
 
 DESCRIPTION = f"{ICON} options for Bash."
 
-VERSION = "4.154.1"
+VERSION = "4.155.1"
 
 REPO_NAME = "blue-options"
 
