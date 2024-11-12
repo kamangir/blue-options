@@ -39,6 +39,14 @@ function abcli_list_next() {
         "${@:3}"
 }
 
+function abcli_list_prev() {
+    python3 -m blue_options.list \
+        prev \
+        --item "$1" \
+        --items "$2" \
+        "${@:3}"
+}
+
 function abcli_list_nonempty() {
     python3 -m blue_options.list \
         nonempty \

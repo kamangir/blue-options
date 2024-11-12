@@ -7,7 +7,7 @@ from blue_options.logger.config import logger
 
 NAME = module.name(__file__, NAME)
 
-LIST_OF_TASKS = "in|intersect|item|len|log|next|nonempty|resize|sort"
+LIST_OF_TASKS = "in|intersect|item|len|log|next|nonempty|prev|resize|sort"
 
 parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
@@ -109,6 +109,13 @@ elif args.task == "next":
     print(next_item)
 elif args.task == "nonempty":
     print(delim.join(list_of_items))
+elif args.task == "prev":
+    prev_item = ""
+    for index in range(1, len(list_of_items)):
+        if list_of_items[index] == args.item:
+            prev_item = list_of_items[index - 1]
+            break
+    print(prev_item)
 elif args.task == "resize":
     print(delim.join(list_of_items[: args.count]))
 elif args.task == "sort":
