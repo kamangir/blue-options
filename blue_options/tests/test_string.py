@@ -11,6 +11,7 @@ from blue_options.string.functions import (
     pretty_date,
     pretty_duration,
     pretty_frequency,
+    pretty_range_of_matrix,
     pretty_shape,
     pretty_shape_of_matrix,
     random,
@@ -426,6 +427,25 @@ def test_pretty_frequency(
     expected_output: str,
 ):
     assert pretty_frequency(frequency) == expected_output
+
+
+@pytest.mark.parametrize(
+    [
+        "matrix",
+        "expected_output",
+    ],
+    [
+        [
+            np.array([[1, 2], [3, 4]], dtype=np.float32),
+            "1.000 < 2.500 +- 1.118 < 4.000",
+        ],
+    ],
+)
+def test_pretty_range_of_matrix(
+    matrix: np.ndarray,
+    expected_output: str,
+):
+    assert pretty_range_of_matrix(matrix) == expected_output
 
 
 @pytest.mark.parametrize(

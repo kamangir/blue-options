@@ -178,6 +178,15 @@ def pretty_frequency(
     )
 
 
+def pretty_range_of_matrix(matrix: np.ndarray) -> str:
+    return "{:.03f} < {:.03f} +- {:.03f} < {:.03f}".format(
+        np.min(matrix),
+        np.mean(matrix),
+        np.std(matrix),
+        np.max(matrix),
+    )
+
+
 def pretty_shape(shape: List[int]) -> str:
     return "x".join([str(value) for value in list(shape)])
 
