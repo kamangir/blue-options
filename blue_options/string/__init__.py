@@ -14,6 +14,7 @@ from blue_options.string.functions import (
     pretty_date,
     pretty_duration,
     pretty_frequency,
+    pretty_range_of_matrix,
     pretty_shape,
     pretty_shape_of_matrix,
     random,
