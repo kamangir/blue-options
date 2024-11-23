@@ -6,37 +6,7 @@ function abcli_test() {
 
     local test_options=$2
 
-    local plugin_display_name
-    [[ "$plugin_name" == abcli ]] &&
-        plugin_display_name="@" ||
-        plugin_display_name="$plugin_name "
-
-    if [ $(abcli_option_int "$options" help 0) == 1 ]; then
-        abcli_test list,plugin=$plugin_name "$@"
-
-        options="${EOP}what=all|<test-name>,dryrun$EOPE"
-        local test_options="${EOP}dryrun$EOPE"
-        abcli_show_usage "${plugin_display_name}test $options$ABCUL$test_options" \
-            "test $plugin_name."
-
-        [[ "$plugin_name" == abcli ]] &&
-            abcli_show_usage "abcli_test$ABCUL$EOP$options,plugin=<plugin-name>$EOPE$ABCUL$test_options" \
-                "test <plugin-name>."
-
-        return
-    fi
-
     if [ $(abcli_option_int "$options" list 0) == 1 ]; then
-        if [ $(abcli_option_int "$2" help 0) == 1 ]; then
-            [[ "$plugin_name" == abcli ]] &&
-                abcli_show_usage "abcli_test list,plugin=<plugin-name>" \
-                    "list <plugin-name> tests."
-
-            abcli_show_usage "${plugin_display_name}test list" \
-                "list $plugin_name tests."
-            return
-        fi
-
         local plugin_name_=$(echo $plugin_name | tr - _)
         declare -F | awk '{print $3}' | grep test_${plugin_name_}
         return
@@ -71,6 +41,7 @@ function abcli_test() {
 
     failed_test_list=$(abcli_list_nonempty $failed_test_list)
     if [[ -z "$failed_test_list" ]]; then
+        abcli_log "✅ $plugin_name"
         return
     else
         abcli_log_list "$failed_test_list" \
