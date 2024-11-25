@@ -3,13 +3,6 @@
 function abcli_source_path() {
     local path=$1
 
-    if [[ "$path" == help ]]; then
-        local options="ignore_error,~log"
-        abcli_show_usage "abcli_source_path <path>$ABCUL[$options]" \
-            "source <path>."
-        return
-    fi
-
     local options=$2
     local ignore_error=$(abcli_option_int "$options" ignore_error 0)
     local do_log=$(abcli_option_int "$options" log 0)
@@ -35,13 +28,6 @@ function abcli_source_path() {
 
 function abcli_source_caller_suffix_path() {
     local suffix=$1
-
-    if [[ "$suffix" == "help" ]]; then
-        options="ignore_error,~log"
-        abcli_show_usage "abcli_source_caller_suffix_path <suffix>$ABCUL[$options]" \
-            "source <caller-path>/<suffix>."
-        return
-    fi
 
     local path=$(dirname "$(realpath "${BASH_SOURCE[1]}")")
 
