@@ -59,19 +59,11 @@ function abcli_hr() {
 }
 
 function abcli_log_list() {
-    local items=$1
-
-    if [[ "$items" == "help" ]]; then
-        local args="[--before \"list of\"]$ABCUL[--after \"items(s)\"]$ABCUL[--delim space|<delim>]"
-        abcli_show_usage "abcli_log_list <this,that>$ABCUL$EOP$args$EOPE" \
-            "log list."
-        return
-    fi
-
     local message=$(python3 -m blue_options.list \
         log \
-        --items "$items" \
+        --items "$1" \
         "${@:2}")
+
     printf "$message\n"
 }
 
