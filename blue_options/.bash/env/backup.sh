@@ -4,7 +4,7 @@ function abcli_env_backup() {
     local task=$1
 
     if [ "$task" == "list" ]; then
-        abcli_list $abcli_path_env_backup
+        abcli_ls $abcli_path_env_backup
         return
     fi
 
