@@ -73,28 +73,9 @@ function abcli_log_local() {
 }
 
 function abcli_show_usage() {
-    local what=$1
-
-    if [ "$what" == "prefix" ]; then
-        local prefix=$2
-
-        local function_name
-        # https://stackoverflow.com/a/2627461/17619982
-        for function_name in $(compgen -A function $prefix); do
-            $function_name "${@:3}"
-        done
-        return
-    fi
-
     local command=$1
     local description=$2
     local comments=$3
-
-    if [[ ! -z "$abcli_show_usage_destination" ]]; then
-        echo "- - $command" >>$abcli_show_usage_destination
-        echo "  - $description" >>$abcli_show_usage_destination
-        return
-    fi
 
     printf "${LIGHTBLUE}$command${NC}\n"
     [[ ! -z "$description" ]] &&
