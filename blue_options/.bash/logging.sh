@@ -36,22 +36,16 @@ else
 fi
 
 function abcli_cat() {
-    local filename=${1:-help}
-
-    if [ "$filename" == "help" ]; then
-        abcli_show_usage "@cat <filename>" \
-            "log <filename>."
-        return
-    fi
+    local filename=$1
 
     if [ ! -f "$filename" ]; then
         abcli_log_error "@cat: $filename: file not found."
         return 1
     fi
 
-    printf "🗒️  $YELLOW$filename$NC\n$BLUE"
+    printf "🗒️  $CYAN$filename$NC\n$BLUE"
     cat $filename
-    printf "$NC\n🗒️  $YELLOW/$filename$NC\n"
+    printf "$NC\n🗒️  $CYAN/$filename$NC\n"
 }
 
 function abcli_hr() {
