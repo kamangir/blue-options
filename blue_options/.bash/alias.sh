@@ -18,6 +18,8 @@ alias @hr=abcli_hr
 
 alias @cat=abcli_cat
 
+alias @list=abcli_list
+
 alias @log=abcli_log
 alias @error=abcli_log_error
 alias @warn=abcli_log_warning

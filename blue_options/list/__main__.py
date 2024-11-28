@@ -7,7 +7,7 @@ from blue_options.logger.config import logger
 
 NAME = module.name(__file__, NAME)
 
-LIST_OF_TASKS = "in|intersect|item|len|log|next|nonempty|prev|resize|sort"
+LIST_OF_TASKS = "filter|in|intersect|item|len|log|next|nonempty|prev|resize|sort"
 
 parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
@@ -26,6 +26,11 @@ parser.add_argument(
     default="list of",
 )
 parser.add_argument(
+    "--contains",
+    type=str,
+    default="",
+)
+parser.add_argument(
     "--count",
     type=int,
 )
@@ -33,6 +38,11 @@ parser.add_argument(
     "--delim",
     type=str,
     default=",",
+)
+parser.add_argument(
+    "--doesnt_contain",
+    type=str,
+    default="",
 )
 parser.add_argument(
     "--index",
@@ -71,7 +81,17 @@ list_of_items = (
 )
 
 success = args.task in LIST_OF_TASKS.split("|")
-if args.task == "in":
+if args.task == "filter":
+    if args.contains:
+        list_of_items = [item for item in list_of_items if args.contains in item]
+
+    if args.doesnt_contain:
+        list_of_items = [
+            item for item in list_of_items if args.doesnt_contain not in item
+        ]
+
+    print(delim.join(list_of_items))
+elif args.task == "in":
     print("True" if args.item in list_of_items else "False")
 elif args.task == "intersect":
     print(

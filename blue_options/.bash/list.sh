@@ -1,5 +1,24 @@
 #! /usr/bin/env bash
 
+function abcli_list() {
+    local task=$1
+
+    local function_name=abcli_list_$task
+    if [[ $(type -t $function_name) == "function" ]]; then
+        $function_name "${@:2}"
+        return
+    fi
+
+    python3 -m blue_options.list "$@"
+}
+
+function abcli_list_filter() {
+    python3 -m blue_options.list \
+        filter \
+        --items "$1" \
+        "${@:2}"
+}
+
 function abcli_list_in() {
     python3 -m blue_options.list \
         in \
@@ -29,6 +48,10 @@ function abcli_list_len() {
         len \
         --items "$1" \
         "${@:2}"
+}
+
+function abcli_list_log() {
+    abcli_log_list "$@"
 }
 
 function abcli_list_next() {
