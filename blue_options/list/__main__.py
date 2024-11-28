@@ -137,7 +137,7 @@ elif args.task == "prev":
             break
     print(prev_item)
 elif args.task == "resize":
-    print(delim.join(list_of_items[: args.count]))
+    print(delim.join(list_of_items[: args.count] if args.count >= 0 else list_of_items))
 elif args.task == "sort":
     if args.unique:
         list_of_items = list(set(list_of_items))
