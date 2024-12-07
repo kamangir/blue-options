@@ -117,7 +117,7 @@ def pretty_date(
         if include_seconds:
             format += ":%S"
     if unique:
-        format += f":{random_module.randrange(100000):05d}"
+        format += f":{random(length=6)}"
     if as_filename:
         format = (
             format.replace(" ", "-")
