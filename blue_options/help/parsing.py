@@ -7,6 +7,7 @@ list_of_modules: List[str] = [
     "blue_objects",
     "blue_geo",
     "blueflow",
+    "giza",
     "notebooks_and_scripts",
 ] + [
     item
