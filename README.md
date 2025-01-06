@@ -6,12 +6,17 @@ here is an example use of an `options` in the [vancouver-watching 🌈](https://
 
 
 ```bash
- > vanwatch help
-vanwatch ingest \
-	area=<vancouver>,~batch,count=<-1>,dryrun,gif,model=<model-id>,~process,publish,~upload \
-	-|<object-name> \
-	[<args>]
- . ingest <area> -> <object-name>.
+ > @help vanwatch ingest
+```
+```bash
+vanwatch \
+	ingest \
+	[area=<area>,count=<-1>,~download,dryrun,~upload] \
+	[-|<object-name>] \
+	[process,count=<-1>,~download,dryrun,gif,model=<model-id>,publish,~upload] \
+	[--detect_objects 0] \
+	[--overwrite 1] \
+	[--verbose 1]
 ```
 
 this command takes in an `options`, an `object`, and `args`. an `options` is a string representation of a dictionary, such as,
