@@ -3,11 +3,11 @@
 function abcli_wait() {
     local message=$1
     [[ -z "$message" ]] &&
-        message="Continue? Y/N: "
+        message="Continue?"
 
     while true; do
         local user_input
-        read -p "$message" -n 1 -r user_input
+        read -p "$message Y/N: " -n 1 -r user_input
         echo # Move to a new line
 
         case $user_input in
