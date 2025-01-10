@@ -53,4 +53,6 @@ alias @@timestamp=abcli_string_timestamp_short
 
 alias @today=abcli_string_today
 
+alias @wait=abcli_wait
+
 alias @watch=abcli_watch
