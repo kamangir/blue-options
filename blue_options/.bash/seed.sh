@@ -133,7 +133,8 @@ function abcli_seed() {
 
             if [[ "$target" == "sagemaker" ]]; then
                 seed="${seed}apt-get update$delim"
-                seed="${seed}apt install -y libgl1-mesa-glx$delim_section"
+                seed="${seed}apt install -y libgl1-mesa-glx$delim"
+                seed="${seed}apt install -y nano$delim_section"
             fi
 
             if [[ "$target" == *"rpi" ]]; then
