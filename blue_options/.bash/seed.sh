@@ -125,7 +125,7 @@ function abcli_seed() {
             fi
 
             if [[ "$target" == "sagemaker-system" ]]; then
-                git_seed
+                abcli_seed_git
 
                 # https://chat.openai.com/c/8bdce889-a9fa-41c2-839f-f75c14d48e52
                 seed="${seed}conda install -y unzip$delim_section"
