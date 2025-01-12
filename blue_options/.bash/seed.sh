@@ -68,7 +68,7 @@ function abcli_seed() {
     env_name=$(abcli_option "$options" env $env_name)
 
     local sudo_prefix="sudo "
-    [[ "$target" == "sagemaker" ]] &&
+    [[ "$target" == "sagemaker"* ]] &&
         sudo_prefix=""
 
     if [ "$output" == "key" ]; then
@@ -125,15 +125,16 @@ function abcli_seed() {
             fi
 
             if [[ "$target" == "sagemaker-system" ]]; then
-                git_seed
-
                 # https://chat.openai.com/c/8bdce889-a9fa-41c2-839f-f75c14d48e52
                 seed="${seed}conda install -y unzip$delim_section"
+
+                seed="${seed}pip3 install opencv-python-headless$delim_section"
             fi
 
             if [[ "$target" == "sagemaker" ]]; then
                 seed="${seed}apt-get update$delim"
-                seed="${seed}apt install -y libgl1-mesa-glx$delim_section"
+                seed="${seed}apt install -y libgl1-mesa-glx$delim"
+                seed="${seed}conda install -c conda-forge nano$delim_section"
             fi
 
             if [[ "$target" == *"rpi" ]]; then
