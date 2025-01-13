@@ -280,9 +280,7 @@ def pretty_duration(
 
 def random(
     length: int = 16,
-    alphabet: str = string_module.ascii_lowercase
-    + string_module.digits
-    + string_module.ascii_uppercase,
+    alphabet: str = string_module.ascii_lowercase + string_module.digits,
 ):
     return "".join(random_module.choice(alphabet) for _ in range(length))
 
