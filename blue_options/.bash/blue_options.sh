@@ -47,6 +47,7 @@ function blue_options_source_dependencies() {
     source $path/string.sh
     source $path/terminal.sh
     source $path/test.sh
+    source $path/wait.sh
     source $path/watch.sh
 
     source $path/alias.sh
