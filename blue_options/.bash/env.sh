@@ -12,7 +12,13 @@ function abcli_env() {
         return
     fi
 
-    env | grep "$1" | sort
+    local command_line="env"
+    for arg in "$@"; do
+        command_line+=" | grep '$arg'"
+    done
+    command_line+=" | sort"
+    abcli_eval - \
+        "$command_line"
 }
 
 abcli_source_caller_suffix_path /env
