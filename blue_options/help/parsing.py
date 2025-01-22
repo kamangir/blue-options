@@ -11,6 +11,7 @@ list_of_modules: List[str] = [
     "giza",
     "notebooks_and_scripts",
     "roofai",
+    "palisades",
 ] + [
     item
     for item in os.getenv(
