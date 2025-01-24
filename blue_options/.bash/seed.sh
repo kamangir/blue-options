@@ -133,8 +133,8 @@ function abcli_seed() {
 
             if [[ "$target" == "sagemaker" ]]; then
                 seed="${seed}apt-get update$delim"
-                seed="${seed}apt install -y libgl1-mesa-glx$delim"
-                seed="${seed}conda install -c conda-forge nano$delim_section"
+                seed="${seed}apt install -y libgl1-mesa-glx rsync$delim"
+                seed="${seed}conda install -c conda-forge nano --yes$delim_section"
             fi
 
             if [[ "$target" == *"rpi" ]]; then
@@ -162,7 +162,7 @@ function abcli_seed() {
                 repo_address="https://github.com/kamangir/awesome-bash-cli"
 
             if [[ "$target" == sagemaker ]]; then
-                seed="${seed}pip install --upgrade pip$delim_section"
+                seed="${seed}pip install --upgrade pip --no-input$delim_section"
                 seed="${seed}cd git/awesome-bash-cli${delim}"
             else
                 seed="${seed}cd; mkdir -p git; cd git$delim"
