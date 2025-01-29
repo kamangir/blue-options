@@ -7,6 +7,8 @@ function abcli_browse() {
     [[ ! -z "$description" ]] &&
         abcli_log "$description"
 
+    [[ -z "$url" ]] && return 0
+
     abcli_log "🔗 $url"
     if [ "$abcli_is_mac" == true ]; then
         open "$url"
