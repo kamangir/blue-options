@@ -10,6 +10,7 @@ list_of_modules: List[str] = [
     "blue_sandbox",
     "giza",
     "notebooks_and_scripts",
+    "openai_commands",
     "roofai",
     "palisades",
 ] + [
