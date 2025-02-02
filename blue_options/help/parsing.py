@@ -3,6 +3,7 @@ from typing import List
 
 list_of_modules: List[str] = [
     "abcli",
+    "blue_assistant",
     "blue_options",
     "blue_objects",
     "blue_geo",
