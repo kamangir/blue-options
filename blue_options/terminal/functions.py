@@ -3,6 +3,8 @@ from typing import List, Dict, Tuple, Union
 
 from blue_options import env
 
+hr_pattern = ". .. ... .. "
+
 
 def error(
     message: str,
@@ -16,7 +18,7 @@ def error(
 
 def hr(
     width: int,
-    pattern: str,
+    pattern: str = hr_pattern,
     mono: bool = False,
 ) -> str:
     CYAN = "" if mono else env.CYAN

@@ -4,7 +4,7 @@ from blueness import module
 from blueness.argparse.generic import sys_exit
 
 from blue_options import NAME
-from blue_options.terminal.functions import hr
+from blue_options.terminal.functions import hr, hr_pattern
 from blue_options.logger.config import logger
 
 NAME = module.name(__file__, NAME)
@@ -25,7 +25,7 @@ parser.add_argument(
 parser.add_argument(
     "--pattern",
     type=str,
-    default=". .. ... .. ",
+    default=hr_pattern,
 )
 parser.add_argument(
     "--mono",
