@@ -11,6 +11,7 @@ setup(
     packages=[
         NAME,
         f"{NAME}.assets",
+        f"{NAME}.env",
         f"{NAME}.help",
         f"{NAME}.host",
         f"{NAME}.list",
