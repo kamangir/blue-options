@@ -178,6 +178,25 @@ def pretty_frequency(
     )
 
 
+def pretty_param(
+    param: Any,
+    value: Any = None,
+) -> Union[str, List[str]]:
+    if isinstance(param, str):
+        return unit_of.get(
+            param.split(".")[0],
+            "{}",
+        ).format(value)
+
+    if isinstance(param, dict):
+        return [
+            f"{param_}: {pretty_param(param_, value_)}"
+            for param_, value_ in param.items()
+        ]
+
+    return f"{param.__class__.__name__}: class not found."
+
+
 def pretty_range_of_matrix(matrix: np.ndarray) -> str:
     return "{:.03f} < {:.03f} +- {:.03f} < {:.03f}".format(
         np.min(matrix),
