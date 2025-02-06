@@ -1,7 +1,24 @@
-from typing import Union
+from typing import Any
 import os
 from dotenv import load_dotenv
 import pkg_resources
+
+
+def get_env(name: str, default: Any = "") -> Any:
+    output = os.getenv(
+        name,
+        default,
+    )
+
+    # order is critical
+    for output_type in [bool, int, float]:
+        if isinstance(default, output_type):
+            try:
+                return output_type(output)
+            except:
+                return default
+
+    return output
 
 
 def load_config(
@@ -37,27 +54,3 @@ def load_env(
         print(f"loading {env_filename}.")
 
     load_dotenv(env_filename)
-
-
-ABCUL = " \\\n\t"
-
-
-abcli_log_filename = os.getenv(
-    "abcli_log_filename",
-    "",
-)
-
-
-CYAN = "\033[36m"
-GREEN = "\033[32m"
-LIGHTBLUE = "\033[96m"
-NC = "\033[0m"
-RED = "\033[31m"
-
-EOP = "\033[33m"
-
-HOST_NAME: Union[None, str] = None
-
-abcli_hostname = os.getenv("abcli_hostname", "")
-
-abcli_wifi_ssid = os.getenv("abcli_wifi_ssid", "")

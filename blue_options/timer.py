@@ -3,7 +3,11 @@ from blue_options import string
 
 
 class Timer:
-    def __init__(self, period, name):
+    def __init__(
+        self,
+        period: int,
+        name: str,
+    ):
         self.count = 0
         self.hot = False
         self.last_hot = None
