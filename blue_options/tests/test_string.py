@@ -11,6 +11,7 @@ from blue_options.string.functions import (
     pretty_date,
     pretty_duration,
     pretty_frequency,
+    pretty_param,
     pretty_range_of_matrix,
     pretty_shape,
     pretty_shape_of_matrix,
@@ -372,6 +373,27 @@ def test_string_pretty_duration(
             largest=True,
         )
         == expected_output
+    )
+
+
+@pytest.mark.parametrize(
+    ["param", "value", "expected_output"],
+    [
+        ["ambient light.xyz", 12.3, "12.3 lux"],
+        ["humidity.xyz", 12.3, "12.3 %RH"],
+        ["iteration.xyz", 12.3, "12.3"],
+        ["pitch.xyz", 12.3, "12.3 deg"],
+        ["pressure.xyz", 12.3, "12.3 hPa"],
+        ["roll.xyz", 12.3, "12.3 deg"],
+        ["temperature.cpu", 12.3, "12.3 'C"],
+        ["yaw.xyz", 12.3, "12.3 deg"],
+        ["void.xyz", 12.3, "12.3"],
+    ],
+)
+def test_pretty_param(param, value, expected_output):
+    assert expected_output == pretty_param(
+        param=param,
+        value=value,
     )
 
 
