@@ -18,7 +18,7 @@ function abcli_env_dot() {
     fi
 
     if [[ "$task" == "list" ]]; then
-        ls -1lh $abcli_path_assets/env/*.env
+        abcli_ls $abcli_path_assets/env/
         return
     fi
 
