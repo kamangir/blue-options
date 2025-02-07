@@ -52,7 +52,7 @@ pip install blue_options
 add this line to your `~/.bash_profile` or `~/.bashrc`,
 
 ```bash
-source $(python -m blue_options locate)/.bash/blue_options.sh
+source $(python3 -m blue_options locate)/.bash/blue_options.sh
 ```
 
 ## usage
