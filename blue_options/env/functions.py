@@ -10,8 +10,11 @@ def get_env(name: str, default: Any = "") -> Any:
         default,
     )
 
+    if isinstance(default, bool):
+        return output == "1"
+
     # order is critical
-    for output_type in [bool, int, float]:
+    for output_type in [int, float]:
         if isinstance(default, output_type):
             try:
                 return output_type(output)
