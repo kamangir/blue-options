@@ -3,7 +3,7 @@
 function abcli_seed() {
     local task=$(abcli_unpack_keyword $1)
 
-    local list_of_seed_targets="cloudshell|docker|ec2|jetson|headless_rpi|mac|rpi|sagemaker|sagemaker-system"
+    local list_of_seed_targets="cloudshell|docker|ec2|jetson|headless_rpi|mac|rpi|sagemaker-jupyterlab|studio-classic-sagemaker|studio-classic-sagemaker-system"
 
     if [ "$task" == "list" ]; then
         local list_of_targets=$(declare -F | awk '{print $NF}' | grep 'abcli_seed_' | sed 's/abcli_seed_//' | tr '\n' '|')
@@ -68,7 +68,7 @@ function abcli_seed() {
     env_name=$(abcli_option "$options" env $env_name)
 
     local sudo_prefix="sudo "
-    [[ "$target" == "sagemaker"* ]] &&
+    [[ "$target" == *"sagemaker"* ]] &&
         sudo_prefix=""
 
     if [ "$output" == "key" ]; then
@@ -99,7 +99,7 @@ function abcli_seed() {
         if [ "$target" == docker ]; then
             seed="${seed}source /root/git/awesome-bash-cli/abcli/.abcli/abcli.sh$delim"
         else
-            if [[ "$target" != sagemaker ]]; then
+            if [[ "$target" != studio-classic-sagemaker ]]; then
                 if [ -d "$HOME/.kaggle" ]; then
                     seed="${seed}mkdir -p \$HOME/.kaggle$delim"
                     seed="$seed$(abcli_seed add_file $HOME/.kaggle/kaggle.json \$HOME/.kaggle/kaggle.json)$delim"
@@ -109,14 +109,14 @@ function abcli_seed() {
                 fi
             fi
 
-            if [[ "$target" != sagemaker* ]] && [[ "$target" != cloudshell ]]; then
+            if [[ "$target" != studio-classic-sagemaker* ]] && [[ "$target" != cloudshell ]]; then
                 seed="$seed${sudo_prefix}rm -rf ~/.aws$delim"
                 seed="$seed${sudo_prefix}mkdir ~/.aws$delim_section"
                 seed="$seed$(abcli_seed add_file $HOME/.aws/config \$HOME/.aws/config)$delim"
                 seed="$seed$(abcli_seed add_file $HOME/.aws/credentials \$HOME/.aws/credentials)$delim_section"
             fi
 
-            if [[ "|cloudshell|sagemaker|" != *"|$target|"* ]]; then
+            if [[ "|cloudshell|studio-classic-sagemaker|" != *"|$target|"* ]]; then
                 seed="${seed}${sudo_prefix}mkdir -p ~/.ssh$delim_section"
                 seed="$seed"'eval "$(ssh-agent -s)"'"$delim_section"
                 seed="$seed$(abcli_seed add_file $HOME/.ssh/$abcli_git_ssh_key_name \$HOME/.ssh/$abcli_git_ssh_key_name)$delim"
@@ -124,14 +124,14 @@ function abcli_seed() {
                 seed="${seed}ssh-add -k ~/.ssh/$abcli_git_ssh_key_name$delim_section"
             fi
 
-            if [[ "$target" == "sagemaker-system" ]]; then
+            if [[ "$target" == "studio-classic-sagemaker-system" ]]; then
                 # https://chat.openai.com/c/8bdce889-a9fa-41c2-839f-f75c14d48e52
                 seed="${seed}conda install -y unzip$delim_section"
 
                 seed="${seed}pip3 install opencv-python-headless$delim_section"
             fi
 
-            if [[ "$target" == "sagemaker" ]]; then
+            if [[ "$target" == "studio-classic-sagemaker" ]]; then
                 seed="${seed}apt-get update$delim"
                 seed="${seed}apt install -y libgl1-mesa-glx rsync$delim"
                 seed="${seed}conda install -c conda-forge nano --yes$delim_section"
@@ -141,7 +141,7 @@ function abcli_seed() {
                 seed="${seed}ssh-keyscan github.com | sudo tee -a ~/.ssh/known_hosts$delim_section"
             fi
 
-            if [[ "$target" != sagemaker ]] && [[ "$target" != cloudshell ]]; then
+            if [[ "$target" != studio-classic-sagemaker ]] && [[ "$target" != cloudshell ]]; then
                 seed="${seed}"'ssh -T git@github.com'"$delim_section"
             fi
 
@@ -158,10 +158,10 @@ function abcli_seed() {
             fi
 
             local repo_address="git@github.com:kamangir/awesome-bash-cli.git"
-            [[ "$target" == sagemaker-system ]] &&
+            [[ "$target" == studio-classic-sagemaker-system ]] &&
                 repo_address="https://github.com/kamangir/awesome-bash-cli"
 
-            if [[ "$target" == sagemaker ]]; then
+            if [[ "$target" == studio-classic-sagemaker ]]; then
                 seed="${seed}pip install --upgrade pip --no-input$delim_section"
                 seed="${seed}cd git/awesome-bash-cli${delim}"
             else
@@ -206,7 +206,7 @@ function abcli_seed() {
                 seed="${seed}abcli init$delim_section"
             fi
 
-            if [[ "$target" == sagemaker ]]; then
+            if [[ "$target" == studio-classic-sagemaker ]]; then
                 local plugin_name=$(abcli_option "$options" plugin)
 
                 [[ ! -z "$plugin_name" ]] &&
@@ -218,7 +218,7 @@ function abcli_seed() {
     [[ "$do_eval" == 1 ]] &&
         seed="${seed}abcli_eval ${@:3}$delim_section"
 
-    [[ "$target" == sagemaker* ]] &&
+    [[ "$target" == studio-classic-sagemaker* ]] &&
         abcli_log_warning "run \"bash\" before pasting the seed."
 
     if [ "$output" == "clipboard" ]; then
