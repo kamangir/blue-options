@@ -94,7 +94,14 @@ function abcli_seed() {
 
     if [[ "|$list_of_seed_targets|" != *"|$target|"* ]]; then
         # expected to append to/update $seed
-        abcli_seed_${target} "${@:2}"
+        local function_name="abcli_seed_${target}"
+
+        if [[ $(type -t $function_name) == "function" ]]; then
+            $function_name "${@:2}"
+        else
+            abcli_log_error "@seed: $target: target not found."
+            return 1
+        fi
     else
         if [ "$target" == docker ]; then
             seed="${seed}source /root/git/awesome-bash-cli/abcli/.abcli/abcli.sh$delim"
