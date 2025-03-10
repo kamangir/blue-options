@@ -33,5 +33,9 @@ function abcli_env_backup() {
             $abcli_path_env_backup/.$thing
     done
 
+    cp -v \
+        $abcli_path_git/awesome-bash-cli/abcli/assets/ignore/*.pem \
+        $abcli_path_env_backup
+
     abcli_log "ℹ️ make sure $abcli_path_env_backup is synced with Google Drive."
 }
