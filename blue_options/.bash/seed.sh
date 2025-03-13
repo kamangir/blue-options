@@ -208,6 +208,11 @@ function abcli_seed() {
                 seed="${seed}source ~/.bashrc$delim_section"
             fi
 
+            if [[ "$target" == sagemaker-jupyterlab ]]; then
+                seed="${seed}pip3 install --upgrade opencv-python-headless$delim_section"
+                seed="${seed}abcli_plugins_install all$delim_section"
+            fi
+
             if [ ! -z "$env_name" ]; then
                 seed="${seed}abcli_env dot copy $env_name$delim"
                 seed="${seed}abcli init$delim_section"
