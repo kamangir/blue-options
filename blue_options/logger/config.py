@@ -89,12 +89,13 @@ def log_dict(
 
 def log_list(
     logger: Logger,
+    title: str,
     list_of_items: list,
     item_name_plural: str = "item(s)",
     max_count: int = 10,
     max_length: int = 100,
 ):
-    logger.info(f"{len(list_of_items)} {item_name_plural}")
+    logger.info(f"{title} {len(list_of_items)} {item_name_plural}")
 
     for index, item in enumerate(list_of_items):
         logger.info(
