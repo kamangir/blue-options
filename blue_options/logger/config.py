@@ -64,12 +64,13 @@ def log_long_text(
 
 def log_dict(
     logger: Logger,
+    title: str,
     dict_of_items: dict,
     item_name_plural: str = "item(s)",
     max_count: int = 10,
     max_length: int = 100,
 ):
-    logger.info(f"{len(dict_of_items)} {item_name_plural}")
+    logger.info(f"{title} {len(dict_of_items)} {item_name_plural}.")
 
     for index, (item, info) in enumerate(dict_of_items.items()):
         logger.info(
