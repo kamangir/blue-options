@@ -35,6 +35,7 @@ def test_log_dict(
 ):
     log_dict(
         logger=logger,
+        title="testing",
         dict_of_items=dict_of_items,
         max_count=max_count,
         max_length=max_length,

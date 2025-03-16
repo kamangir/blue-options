@@ -35,6 +35,7 @@ def test_log_list(
 ):
     log_list(
         logger=logger,
+        title="testing",
         list_of_items=list_of_items,
         max_count=max_count,
         max_length=max_length,
